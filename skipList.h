@@ -9,7 +9,6 @@ class Skiplist {
 	Node *last;
 	unsigned int nodeCount;
 	unsigned int layers;
-	void initList();
 public:
 	SkipList();
 	~SkipList();
@@ -23,6 +22,7 @@ public:
 	bool insert(Data d);
     Node* find(Data d);
     bool remove(Data d);
+    void pop(); // used for sorting
 	void print() const;
 };
 
