@@ -23,9 +23,9 @@ Node* SkipList::find(Data d){
     if (isEmpty()){
         return nullptr;
     }
-    Node* it = first;
     int i = layers - 1;
-    do {
+    Node* it = first;
+    while (it == first || it->data != d) {
         if (it->nexts[i] == last || it->nexts[i]->data > d){
             if (i <= 0){ // if we are in the bottom layer
                 return nullptr;
@@ -34,7 +34,7 @@ Node* SkipList::find(Data d){
         }else {
             it = it->nexts[i];
         }
-    } while (it->data != d);
+    }
     return it;
 }
 
@@ -84,9 +84,9 @@ Node* SkipList::findBefore(Data d, unsigned int layer){
     if (isEmpty()){
         return nullptr;
     }
-    Node* it = first->nexts[layer];
+    Node* it = first;
     Node* before = nullptr;
-    while (it->data != d){
+    while (it == first || it->data != d){
         if (it->nexts[layer]->data > d || it->nexts[layer] == last){
             return nullptr;
         }

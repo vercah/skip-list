@@ -3,6 +3,9 @@
 
 using namespace std;
 
+void skipSort(int* array, unsigned int length){
+
+}
 //TODO: funkce generující náhodná čísla, která potom seřadí pomocí skiplistu
 
 int main()
@@ -15,7 +18,7 @@ int main()
 	}
 	//l->print();
 	l->show();
-	l->remove(10);
+	l->remove(0);
 	l->show();
 
 //
