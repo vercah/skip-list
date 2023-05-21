@@ -10,7 +10,7 @@ class SkipList {
 	unsigned int nodeCount;
 	unsigned int layers;
 public:
-	SkipList();
+	SkipList(unsigned int lrs);
 	~SkipList();
 	unsigned int getElementCount() const {
 		return nodeCount;

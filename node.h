@@ -7,11 +7,12 @@
 
 class Node {
 	Data data;
-	Node *next;
-	Node *down;
+	unsigned int level;
+	Node* nexts;
 public:
-	Node() : next(nullptr), down(nullptr) {}
-	Node(Data d) : data(d), next(nullptr), down(nullptr) {}
+	Node(unsigned int lvl);
+	Node(unsigned int lvl, Data d);
+	~Node();
 	void setData(const Data d) { data = d; }
 	Data getData() const { return data; }
 	void print() const { std::cout << data; }
