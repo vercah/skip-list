@@ -4,7 +4,7 @@
 #include "type.h"
 #include "node.h"
 
-class Skiplist {
+class SkipList {
 	Node *first;
 	Node *last;
 	unsigned int nodeCount;

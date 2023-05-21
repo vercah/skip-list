@@ -8,10 +8,11 @@ using namespace std;
 int main()
 {
 	SkipList *l;
-	for (int i = 0; i < 10; i++) {
-		l.insert(i);
-		l.insert(20 - i);
-	}
+	cout << "Hello World" << endl;
+//	for (int i = 0; i < 10; i++) {
+//		l.insert(i);
+//		l.insert(20 - i);
+//	}
 //
 //	l.remove(20);
 //	l.print();

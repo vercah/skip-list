@@ -19,6 +19,7 @@ public:
 		print();
 		std::cout << std::endl;
 	}
+	friend class SkipList; // let SkipList access private Node pointers
 };
 
 
