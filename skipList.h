@@ -19,11 +19,12 @@ public:
 		return nodeCount == 0;
 	}
 	void clean();
-	bool insert(Data d);
+	void insert(Data d);
     Node* find(Data d);
     bool remove(Data d);
-    void pop(); // used for sorting
+    Data pop(); // used for sorting
 	void print() const;
+	void show();
 };
 
 #endif // SKIPLIST_H

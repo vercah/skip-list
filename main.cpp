@@ -7,12 +7,16 @@ using namespace std;
 
 int main()
 {
-	SkipList *l;
+	SkipList* l = new SkipList(10);
 	cout << "Hello World" << endl;
-//	for (int i = 0; i < 10; i++) {
-//		l.insert(i);
-//		l.insert(20 - i);
-//	}
+	//l->insert(5);
+	for (int i = 0; i < 20; i++) {
+	    unsigned int number = (rand() % 7)+1;
+		l->insert(number);
+	}
+	//l->print();
+	l->show();
+
 //
 //	l.remove(20);
 //	l.print();

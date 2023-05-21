@@ -8,7 +8,7 @@
 class Node {
 	Data data;
 	unsigned int level;
-	Node* nexts;
+	Node** nexts;
 public:
 	Node(unsigned int lvl);
 	Node(unsigned int lvl, Data d);
