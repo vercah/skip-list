@@ -8,8 +8,8 @@ using namespace std;
 int main()
 {
 	SkipList* l = new SkipList(10);
-	cout << "Hello World" << endl;
-	//l->insert(5);
+	cout << "dělá to vůbec něco?" << endl;
+	l->insert(5);
 	for (int i = 0; i < 20; i++) {
 	    unsigned int number = (rand() % 7)+1;
 		l->insert(number);
