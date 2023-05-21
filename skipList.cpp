@@ -25,15 +25,16 @@ Node* SkipList::find(Data d){
     }
     Node* it = first;
     int i = layers - 1;
-    while (it->data != d){
-        if (it->nexts[i]->data > d || it->nexts[i] == last){
+    do {
+        if (it->nexts[i] == last || it->nexts[i]->data > d){
             if (i <= 0){ // if we are in the bottom layer
                 return nullptr;
             }
             i--;
+        }else {
+            it = it->nexts[i];
         }
-        it = it->nexts[i];
-    }
+    } while (it->data != d);
     return it;
 }
 
@@ -77,6 +78,40 @@ void SkipList::show() {
     else{
         cout << "empty" << endl;
     }
+}
+
+Node* SkipList::findBefore(Data d, unsigned int layer){
+    if (isEmpty()){
+        return nullptr;
+    }
+    Node* it = first->nexts[layer];
+    Node* before = nullptr;
+    while (it->data != d){
+        if (it->nexts[layer]->data > d || it->nexts[layer] == last){
+            return nullptr;
+        }
+        before = it;
+        it = it->nexts[layer];
+    }
+    return before;
+}
+
+bool SkipList::remove(Data d){
+    Node* found = find(d);
+    Node* foundBefore;
+    if (!found){
+        return false;
+    }
+    for (int i = found->level-1; i>=0; i--){
+        foundBefore = findBefore(d, i);
+        if(foundBefore){
+            foundBefore->nexts[i] = found->nexts[i];
+        }else{
+            return false;
+        }
+    }
+    delete found;
+    return true;
 }
 
 void SkipList::clean() {

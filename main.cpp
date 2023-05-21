@@ -11,10 +11,11 @@ int main()
 	cout << "dělá to vůbec něco?" << endl;
 	l->insert(5);
 	for (int i = 0; i < 20; i++) {
-	    unsigned int number = (rand() % 7)+1;
-		l->insert(number);
+		l->insert(i);
 	}
 	//l->print();
+	l->show();
+	l->remove(10);
 	l->show();
 
 //
