@@ -9,7 +9,7 @@ class SkipList {
 	Node *last;
 	unsigned int nodeCount;
 	unsigned int layers;
-	Node* findBefore(Data d, unsigned int layer); // returns preceding node in the given layer
+	Node* findBefore(Node* node, unsigned int layer); // returns preceding node in the given layer
 public:
 	SkipList(unsigned int lrs);
 	~SkipList();

@@ -3,29 +3,37 @@
 
 using namespace std;
 
-void skipSort(int* array, unsigned int length){
-
+void printRow(int* array, unsigned int n){
+    for (int i = 0; i< n; i++){
+        cout << array[i] << ", ";
+    }
+    cout << endl;
 }
-//TODO: funkce generující náhodná čísla, která potom seřadí pomocí skiplistu
+
+void skipSort(int* array, unsigned int n){
+    cout << "We have " << n << " randomly generated integers to sort:" << endl;
+    printRow(array, n);
+    cout << endl;
+    SkipList* l = new SkipList(10);
+    for (int i = 0; i < n; i++) {
+        l->insert(array[i]);
+    }
+    // l->show(); // to print the structure in terminal
+    for (int i = 0; i < n; i++) {
+        array[i] = l->pop();
+    }
+    cout << "--- sorted by skipSort ---" << endl;
+    printRow(array, n);
+}
 
 int main()
 {
-	SkipList* l = new SkipList(10);
-	cout << "dělá to vůbec něco?" << endl;
-	l->insert(5);
-	for (int i = 0; i < 20; i++) {
-		l->insert(i);
-	}
-	//l->print();
-	l->show();
-	l->remove(0);
-	l->show();
+    unsigned int n = 20;
+    int* array = new int[n];
+    for (int i = 0; i< n; i++){
+        array[i] = (rand() % n)+1;
+    }
+    skipSort(array, n);
 
-//
-//	l.remove(20);
-//	l.print();
-//	l.clean();
-//	cout << "#prvku: " <<
-//		l.getElementCount() << endl;
 	return 0;
 }
