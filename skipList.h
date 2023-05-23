@@ -3,6 +3,7 @@
 
 //#include "type.h"
 #include "node.h"
+#include "node.cpp"
 
 template<typename Data>
 class SkipList {

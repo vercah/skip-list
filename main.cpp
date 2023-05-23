@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include "skipList.h"
+#include "skipList.cpp"
 
 using namespace std;
 
