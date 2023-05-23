@@ -1,14 +1,15 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "type.h"
+//#include "type.h"
 
 #include <iostream>
+template<typename Data = int>
 
 class Node {
 	Data data;
 	unsigned int level;
-	Node** nexts;
+	Node<Data>** nexts;
 public:
 	Node(unsigned int lvl);
 	Node(unsigned int lvl, Data d);
@@ -20,7 +21,7 @@ public:
 		print();
 		std::cout << std::endl;
 	}
-	friend class SkipList; // let SkipList access private Node pointers
+	template<typename X> friend class SkipList; // let SkipList access private Node pointers
 };
 
 

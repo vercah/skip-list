@@ -1,25 +1,28 @@
 #include "node.h"
 #include <new> //std::nothrow
 
-Node::Node(unsigned int lvl)
+template<typename Data>
+Node<Data>::Node(unsigned int lvl)
     : level(lvl)
 {
-    nexts = new Node*[level];
+    nexts = new Node<Data>*[level];
     for (int i = 0; i < lvl; i++){
         nexts[i] = nullptr;
     }
 }
 
-Node::Node(unsigned int lvl, Data d)
+template<typename Data>
+Node<Data>::Node(unsigned int lvl, Data d)
     : level(lvl), data(d)
 {
-    nexts = new Node*[level];
+    nexts = new Node<Data>*[level];
     for (int i = 0; i < lvl; i++){
         nexts[i] = nullptr;
     }
 }
 
-Node::~Node(){
+template<typename Data>
+Node<Data>::~Node(){
     delete[] nexts;
     level = 0;
 }

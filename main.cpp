@@ -15,7 +15,7 @@ void skipSort(int* array, unsigned int n){
     //cout << "We have " << n << " randomly generated integers to sort:" << endl;
     //printRow(array, n);
     //cout << endl;
-    SkipList* l = new SkipList(10);
+    SkipList<int>* l = new SkipList<int>(10);
     for (int i = 0; i < n; i++) {
         l->insert(array[i]);
     }
@@ -62,7 +62,7 @@ void measureBinary(int* array, int arrayLength, int* desired, int desiredLength)
 }
 
 void measureSkipSort(unsigned int layers, int* array, int arrayLength, int* desired, int desiredLength){
-    SkipList* l = new SkipList(layers);
+    SkipList<int>* l = new SkipList<int>(layers);
     for (int i = 0; i < arrayLength; i++) { // create skipList
         l->insert(array[i]);
     }

@@ -1,15 +1,16 @@
 #ifndef SKIPLIST_H
 #define SKIPLIST_H
 
-#include "type.h"
+//#include "type.h"
 #include "node.h"
 
+template<typename Data>
 class SkipList {
-	Node *first;
-	Node *last;
+	Node<Data> *first;
+	Node<Data> *last;
 	unsigned int nodeCount;
 	unsigned int layers;
-	Node* findBefore(Node* node, unsigned int layer); // returns preceding node in the given layer
+	Node<Data>* findBefore(Node<Data>* node, unsigned int layer); // returns preceding node in the given layer
 public:
 	SkipList(unsigned int lrs);
 	~SkipList();
@@ -21,7 +22,7 @@ public:
 	}
 	void clean();
 	void insert(Data d);
-    Node* find(Data d);
+    Node<Data>* find(Data d);
     bool remove(Data d);
     Data pop(); // used for sorting
 	void print() const;
