@@ -106,6 +106,7 @@ bool SkipList::remove(Data d){
         }
     }
     delete found;
+    nodeCount--;
     return true;
 }
 
@@ -120,5 +121,6 @@ void SkipList::clean() {
 Data SkipList::pop() {
 	Data it = first->nexts[0]->data;
 	remove(first->nexts[0]->data);
+	nodeCount--;
 	return it;
 }
