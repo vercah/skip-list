@@ -18,6 +18,7 @@ SkipList<Data>::SkipList(unsigned int lrs)
 template<typename Data>
 SkipList<Data>::~SkipList() {
 	clean();
+
 	delete first;
 	delete last;
 }
@@ -132,6 +133,5 @@ template<typename Data>
 Data SkipList<Data>::pop() {
 	Data it = first->nexts[0]->data;
 	remove(first->nexts[0]->data);
-	nodeCount--;
 	return it;
 }
